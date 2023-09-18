@@ -1,0 +1,326 @@
+.products-header {
+  margin-bottom: 20px;
+  padding: 0 10px;
+  @include flexWrapper(space-between);
+  & > div {
+    @include flexWrapper($align-items: center);
+    & span {
+      display: block;
+      width: 15px;
+      height: 30px;
+      border-radius: 4px;
+      background-color: $color-secondary-02;
+      margin-right: 15px;
+    }
+  }
+}
+
+.view {
+  @include flexWrapper;
+  background: none;
+  outline: none;
+  border: none;
+  padding: 8px 5px;
+  border-radius: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  & > svg {
+    pointer-events: none;
+    path {
+      fill: $color-neutral-04;
+    }
+  }
+  transition: box-shadow 0.4s ease-in-out;
+  &.pressed {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+    path {
+      fill: $color-neutral-07;
+    }
+  }
+}
+
+.main-header {
+  @include flexWrapper($justify-content: start);
+  border-bottom: 1px solid $color-neutral-03;
+  padding: 10px;
+
+  & > p {
+    text-align: left;
+    font-size: 13px;
+  }
+  & > p:nth-child(2) {
+    width: 50%;
+    margin-left: 25px;
+  }
+
+  & > p:nth-child(3) {
+    width: 10%;
+  }
+
+  & > p:nth-child(4) {
+    width: 20%;
+  }
+
+  & p:nth-child(5) {
+    width: 20%;
+  }
+  @include tablet {
+    display: none;
+  }
+}
+
+.list {
+  .product {
+    border-bottom: 1px solid $color-neutral-03;
+    & > .image-wrapper {
+      display: none;
+      @include mobile {
+        display: block;
+        width: 50%;
+        margin: 15px 0;
+      }
+      & > img {
+        @include mobile {
+          max-width: 115px;
+          max-height: 115px;
+        }
+      }
+    }
+    & > div:nth-child(2) {
+      transition: background-color 0.4s;
+      margin: 10px 0;
+      padding: 10px;
+      @include flexWrapper($justify-content: start);
+      & > div:nth-child(1) {
+        margin-right: 25px;
+        align-self: start;
+        @include tablet {
+          display: none;
+        }
+      }
+      & > div:nth-child(2) {
+        display: flex;
+        width: 50%;
+        & > img {
+          width: 80px;
+          height: 80px;
+        }
+        & > div {
+          @include flexWrapper($align-items: start);
+          flex-direction: column;
+          margin-left: 15px;
+          & > svg {
+            display: none;
+          }
+        }
+      }
+      & > div:nth-child(3) {
+        width: 10%;
+        padding-bottom: 10px;
+        & > p {
+          @include flexWrapper;
+        }
+        .grey {
+          background-color: $color-neutral-03;
+        }
+      }
+      & > div:nth-child(4) {
+        width: 20%;
+        padding-bottom: 10px;
+        svg {
+          display: none;
+        }
+        @include tablet {
+          width: 40%;
+          margin-left: 20px;
+        }
+      }
+      & > div:nth-child(5) {
+        width: 20%;
+        padding-bottom: 10px;
+        @include flexWrapper;
+        svg {
+          cursor: pointer;
+          visibility: hidden;
+        }
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+    @include mobile {
+      display: flex;
+      & > div:nth-child(2) {
+        margin: 5px 0;
+        @include flexWrapper(
+          $align-items: start,
+          $justify-content: space-between
+        );
+        flex-direction: column;
+        width: 100%;
+        & > div:nth-child(1) {
+          display: none;
+        }
+        & > div:nth-child(2) {
+          width: 100%;
+          & > div {
+            margin-left: 0;
+            width: 100%;
+            @include flexWrapper(
+              $align-items: start,
+              $justify-content: space-between
+            );
+            flex-direction: row;
+            & > h5 {
+              width: 85%;
+            }
+            & > svg {
+              display: block;
+            }
+          }
+          img,
+          a {
+            display: none;
+          }
+        }
+        & > div:nth-child(3) {
+          order: 1;
+          padding-bottom: 0;
+        }
+        & > div:nth-child(4) {
+          width: 100%;
+          margin-left: 0;
+          @include flexWrapper($justify-content: start);
+          svg {
+            display: block;
+            @include smMobile {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .product:hover {
+    & > div {
+      background-color: $color-neutral-03;
+      border-radius: 8px;
+      @include mobile {
+        background-color: initial;
+      }
+    }
+    & > div:nth-child(2) > div:nth-child(5) {
+      svg {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.grid {
+  @include gridWrapper;
+  justify-items: center;
+  padding: 10px;
+  .main-header {
+    display: none;
+  }
+  .product {
+    margin-bottom: 20px;
+    position: relative;
+    & > .image-wrapper {
+      position: relative;
+      margin-bottom: 10px;
+      & > img {
+        display: block;
+        width: 100%;
+      }
+    }
+    & > .image-wrapper::before {
+      content: "";
+      position: absolute;
+      transition: all 0.5s ease;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(17, 19, 21, 0.85);
+      border-radius: 8px;
+      opacity: 0;
+    }
+    .border {
+      outline: 2px solid $color-primary-01;
+    }
+    & > div {
+      & > div:nth-child(1) {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+      & > div:nth-child(2) {
+        img,
+        a,
+        svg {
+          display: none;
+        }
+      }
+      & > div:nth-child(3) {
+        & p {
+          position: absolute;
+          bottom: 15px;
+          right: 0;
+        }
+        .grey {
+          background-color: $color-neutral-03;
+        }
+      }
+      & > div:nth-child(4) {
+        @include flexWrapper($justify-content: start);
+        svg {
+          margin-left: 0;
+          path {
+            fill: $color-neutral-04;
+          }
+        }
+      }
+      & > div:nth-child(5) {
+        transition: opacity 0.5s ease;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        @include flexWrapper;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        svg {
+          cursor: pointer;
+        }
+        opacity: 0;
+      }
+    }
+  }
+  .product:hover {
+    & > div {
+      & > div:nth-child(5) {
+        opacity: 1;
+      }
+    }
+    .image-wrapper::before {
+      opacity: 1;
+    }
+  }
+}
+
+.loadMoreContainer {
+  @include flexWrapper;
+}
+
+#loadMoreBtn {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  color: $color-neutral-07;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 20px;
+  border: 2px solid $color-neutral-03;
+  border-radius: 12px;
+}

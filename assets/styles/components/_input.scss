@@ -1,0 +1,34 @@
+.custom-checkbox {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: $color-neutral-00;
+  border: 2px solid rgba(111, 118, 126, 0.4);
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.checkbox:checked + .custom-checkbox {
+  background-color: $color-primary-01;
+}
+
+.checkbox:checked + .custom-checkbox::before {
+  content: "✓";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $color-neutral-00;
+}
+.checkbox-wrapper {
+  vertical-align: top;
+}

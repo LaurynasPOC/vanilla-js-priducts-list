@@ -1,0 +1,64 @@
+// COLOR VARIABLES
+
+$color-neutral-00: #ffffff;
+$color-neutral-01: #fcfcfc;
+$color-neutral-02: #f4f4f4;
+$color-neutral-03: #efefef;
+$color-neutral-04: #6f767e;
+$color-neutral-05: #33383f;
+$color-neutral-06: #272b30;
+$color-neutral-07: #1a1d1f;
+$color-neutral-08: #111315;
+
+$color-primary-01: #2a85ff;
+$color-primary-02: #83bf6e;
+$color-primary-03: #ff6a55;
+$color-primary-04: #8e59ff;
+
+$color-secondary-01: #ffbc99;
+$color-secondary-02: #cabdff;
+$color-secondary-03: #b1e5fc;
+$color-secondary-04: #b5e4ca;
+$color-secondary-05: #ffd88d;
+
+// FONT VARIABLES
+$font-primary: "Inter", sans-serif;
+$font-display: "Inter", sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-neutral-07;
+
+  background-color: $color-neutral-02;
+
+  .content {
+    margin: 40px auto;
+    max-width: 1020px;
+    width: 95%;
+    padding: 20px 10px;
+    background-color: $color-neutral-01;
+    border-radius: 8px;
+    @include tablet {
+      margin: 30px auto;
+      padding: 15px;
+    }
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}

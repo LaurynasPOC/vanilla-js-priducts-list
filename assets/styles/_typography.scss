@@ -1,0 +1,58 @@
+h5 {
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-neutral-07;
+  line-height: 1.6;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-neutral-04;
+}
+
+.list {
+  h5 {
+    font-weight: 700;
+    @media (max-width: 467px) {
+      font-size: 18px;
+    }
+    @media (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+  a {
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-neutral-04;
+    text-decoration: none;
+  }
+  .date {
+    @media (max-width: 467px) {
+      font-size: 13px;
+    }
+  }
+}
+
+p {
+  font-weight: 600;
+  color: $color-neutral-04;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+svg {
+  margin: 0 5px;
+}
+
+.green-price {
+  width: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  color: $color-neutral-07;
+  padding: 5px;
+  background-color: $color-secondary-04;
+  border-radius: 6px;
+}
